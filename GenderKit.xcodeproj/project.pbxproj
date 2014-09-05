@@ -7,17 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842CEB0819B99F47006131A8 /* all.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CEB0719B99F47006131A8 /* all.swift */; };
+		842CEB1119B9A8DF006131A8 /* GenderDesignTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */; };
+		842CEB1419B9AE3B006131A8 /* GenderDesignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */; };
 		848E6F7A19B98E79008C893B /* GenderKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 848E6F7919B98E79008C893B /* GenderKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		848E6F8419B98E79008C893B /* GenderKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E6F8319B98E79008C893B /* GenderKitTests.swift */; };
+		848E6F9719B98E87008C893B /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E6F9619B98E87008C893B /* Gender.swift */; };
+		84A9C2D819B98ED10016B73E /* GenderPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9C2D719B98ED10016B73E /* GenderPickerView.swift */; };
+		84A9C2DA19B9925B0016B73E /* PronounSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9C2D919B9925B0016B73E /* PronounSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		842CEB0719B99F47006131A8 /* all.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = all.swift; sourceTree = "<group>"; };
+		842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderDesignTableViewController.swift; sourceTree = "<group>"; };
+		842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderDesignCell.swift; sourceTree = "<group>"; };
 		848E6F7419B98E79008C893B /* GenderKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GenderKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		848E6F7819B98E79008C893B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848E6F7919B98E79008C893B /* GenderKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GenderKit.h; sourceTree = "<group>"; };
 		848E6F7F19B98E79008C893B /* GenderKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenderKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		848E6F8219B98E79008C893B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848E6F8319B98E79008C893B /* GenderKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderKitTests.swift; sourceTree = "<group>"; };
+		848E6F9619B98E87008C893B /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		84A9C2D719B98ED10016B73E /* GenderPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderPickerView.swift; sourceTree = "<group>"; };
+		84A9C2D919B9925B0016B73E /* PronounSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PronounSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,12 @@
 			isa = PBXGroup;
 			children = (
 				848E6F7919B98E79008C893B /* GenderKit.h */,
+				848E6F9619B98E87008C893B /* Gender.swift */,
+				84A9C2D919B9925B0016B73E /* PronounSet.swift */,
+				842CEB0719B99F47006131A8 /* all.swift */,
+				84A9C2D719B98ED10016B73E /* GenderPickerView.swift */,
+				842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */,
+				842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */,
 				848E6F7719B98E79008C893B /* Supporting Files */,
 			);
 			path = GenderKit;
@@ -196,6 +214,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842CEB1419B9AE3B006131A8 /* GenderDesignCell.swift in Sources */,
+				84A9C2DA19B9925B0016B73E /* PronounSet.swift in Sources */,
+				842CEB0819B99F47006131A8 /* all.swift in Sources */,
+				848E6F9719B98E87008C893B /* Gender.swift in Sources */,
+				842CEB1119B9A8DF006131A8 /* GenderDesignTableViewController.swift in Sources */,
+				84A9C2D819B98ED10016B73E /* GenderPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +398,7 @@
 				848E6F8919B98E79008C893B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		848E6F8A19B98E79008C893B /* Build configuration list for PBXNativeTarget "GenderKitTests" */ = {
 			isa = XCConfigurationList;
@@ -382,6 +407,7 @@
 				848E6F8C19B98E79008C893B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
