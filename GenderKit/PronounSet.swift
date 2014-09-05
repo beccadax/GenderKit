@@ -7,31 +7,35 @@
 //
 
 public struct PronounSet: Equatable {
-    public var heShe: String
-    public var himHer: String
-    public var hisHer: String
-    public var hisHers: String
+    /// Subject pronoun—"he" or "she" for male and female genders.
+    public var subject: String
+    /// Object pronoun—"him" or "her" for male and female genders.
+    public var object: String
+    /// Possessive determiner pronoun—"his" or "her" for male and female genders. Generally, these go before a noun.
+    public var possessiveDeterminer: String
+    /// Possessive pronoun—"his" or "hers" for male and female genders. Generally, these go after a verb.
+    public var determiner: String
     
-    public init(heShe: String, himHer: String, hisHer: String, hisHers: String) {
-        self.heShe = heShe
-        self.himHer = himHer
-        self.hisHer = hisHer
-        self.hisHers = hisHers
+    public init(subject: String, object: String, possessiveDeterminer: String, determiner: String) {
+        self.subject = subject
+        self.object = object
+        self.possessiveDeterminer = possessiveDeterminer
+        self.determiner = determiner
     }
     
-    static let defaultMalePronouns = PronounSet(heShe: "He", himHer: "Him", hisHer: "His", hisHers: "His")
-    static let defaultFemalePronouns = PronounSet(heShe: "She", himHer: "Her", hisHer: "Her", hisHers: "Hers")
+    static let defaultMalePronouns = PronounSet(subject: "He", object: "Him", possessiveDeterminer: "His", determiner: "His")
+    static let defaultFemalePronouns = PronounSet(subject: "She", object: "Her", possessiveDeterminer: "Her", determiner: "Hers")
 }
 
 extension PronounSet: RawRepresentable {
     public func toRaw() -> NSDictionary {
-        return [ "heShe": heShe, "himHer": himHer, "hisHer": hisHer, "hisHers": hisHers ]
+        return [ "subject": subject, "object": object, "possessiveDeterminer": possessiveDeterminer, "determiner": determiner ]
     }
     
     public static func fromRaw(raw: NSDictionary) -> PronounSet? {
         if let raw = raw as? [String: String] {
-            if let (heShe, himHer, hisHer, hisHers) = all(raw["heShe"], raw["himHer"], raw["hisHer"], raw["hisHers"]) {
-                return PronounSet(heShe: heShe, himHer: himHer, hisHer: hisHer, hisHers: hisHers)
+            if let (subject, object, possessiveDeterminer, determiner) = all(raw["subject"], raw["object"], raw["possessiveDeterminer"], raw["determiner"]) {
+                return PronounSet(subject: subject, object: object, possessiveDeterminer: possessiveDeterminer, determiner: determiner)
             }
         }
         return nil
@@ -39,5 +43,5 @@ extension PronounSet: RawRepresentable {
 }
 
 public func == (lhs: PronounSet, rhs: PronounSet) -> Bool {
-    return lhs.heShe == rhs.heShe && lhs.himHer == rhs.himHer && lhs.hisHer == rhs.hisHer && lhs.hisHers == rhs.hisHers
+    return lhs.subject == rhs.subject && lhs.object == rhs.object && lhs.possessiveDeterminer == rhs.possessiveDeterminer && lhs.determiner == rhs.determiner
 }

@@ -28,7 +28,7 @@ class GenderDesignTableViewController: UITableViewController {
         fatalError("GenderDesignTableViewController does not support NSCoding")
     }
     
-    var currentGender: Gender = .Other(description: "", pronouns: PronounSet(heShe: "", himHer: "", hisHer: "", hisHers: "")) {
+    var currentGender: Gender = .Other(description: "", pronouns: PronounSet(subject: "", object: "", possessiveDeterminer: "", determiner: "")) {
         didSet {
             updateDoneEnabled()
         }
@@ -39,13 +39,13 @@ class GenderDesignTableViewController: UITableViewController {
         case (0, 0):
             return gender.description
         case (1, 0):
-            return gender.pronouns.heShe
+            return gender.pronouns.subject
         case (1, 1):
-            return gender.pronouns.himHer
+            return gender.pronouns.object
         case (1, 2):
-            return gender.pronouns.hisHer
+            return gender.pronouns.possessiveDeterminer
         case (1, 3):
-            return gender.pronouns.hisHers
+            return gender.pronouns.determiner
         default:
             fatalError("Invalid gender component index")
         }
@@ -56,13 +56,13 @@ class GenderDesignTableViewController: UITableViewController {
         case (0, 0):
             currentGender.description = value
         case (1, 0):
-            currentGender.pronouns.heShe = value
+            currentGender.pronouns.subject = value
         case (1, 1):
-            currentGender.pronouns.himHer = value
+            currentGender.pronouns.object = value
         case (1, 2):
-            currentGender.pronouns.hisHer = value
+            currentGender.pronouns.possessiveDeterminer = value
         case (1, 3):
-            currentGender.pronouns.hisHers = value
+            currentGender.pronouns.determiner = value
         default:
             fatalError("Invalid gender component index")
         }
