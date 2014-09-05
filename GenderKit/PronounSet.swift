@@ -9,10 +9,13 @@
 public struct PronounSet: Equatable {
     /// Subject pronoun—"he" or "she" for male and female genders.
     public var subject: String
+    
     /// Object pronoun—"him" or "her" for male and female genders.
     public var object: String
+    
     /// Possessive determiner pronoun—"his" or "her" for male and female genders. Generally, these go before a noun.
     public var possessiveDeterminer: String
+    
     /// Possessive pronoun—"his" or "hers" for male and female genders. Generally, these go after a verb.
     public var determiner: String
     
