@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8409382819BA61F7002EF842 /* PronounReferable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409382719BA61F7002EF842 /* PronounReferable.swift */; };
 		842CEB0819B99F47006131A8 /* all.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CEB0719B99F47006131A8 /* all.swift */; };
 		842CEB1119B9A8DF006131A8 /* GenderDesignTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */; };
 		842CEB1419B9AE3B006131A8 /* GenderDesignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8409382719BA61F7002EF842 /* PronounReferable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PronounReferable.swift; sourceTree = "<group>"; };
 		842CEB0719B99F47006131A8 /* all.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = all.swift; sourceTree = "<group>"; };
 		842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderDesignTableViewController.swift; sourceTree = "<group>"; };
 		842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderDesignCell.swift; sourceTree = "<group>"; };
@@ -74,10 +76,11 @@
 				848E6F7919B98E79008C893B /* GenderKit.h */,
 				848E6F9619B98E87008C893B /* Gender.swift */,
 				84A9C2D919B9925B0016B73E /* PronounSet.swift */,
-				842CEB0719B99F47006131A8 /* all.swift */,
+				8409382719BA61F7002EF842 /* PronounReferable.swift */,
 				84A9C2D719B98ED10016B73E /* GenderPickerView.swift */,
 				842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */,
 				842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */,
+				842CEB0719B99F47006131A8 /* all.swift */,
 				848E6F7719B98E79008C893B /* Supporting Files */,
 			);
 			path = GenderKit;
@@ -220,6 +223,7 @@
 				848E6F9719B98E87008C893B /* Gender.swift in Sources */,
 				842CEB1119B9A8DF006131A8 /* GenderDesignTableViewController.swift in Sources */,
 				84A9C2D819B98ED10016B73E /* GenderPickerView.swift in Sources */,
+				8409382819BA61F7002EF842 /* PronounReferable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
