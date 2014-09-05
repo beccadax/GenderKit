@@ -7,6 +7,8 @@
 //
 
 public enum Gender: Equatable, Printable {
+    static let SeparatorCharacter: Character = "|"
+    
     case Male
     case Female
     case Other (description: String, pronouns: PronounSet)
@@ -64,10 +66,9 @@ extension Gender: RawRepresentable {
         case .Female:
             return "F"
         case let .Other(description, pronouns):
-            let dict = [ "description": description, "pronouns": pronouns.toRaw() ]
-            let JSONData = NSJSONSerialization.dataWithJSONObject(dict, options: nil, error: nil)!
+            let JSONData = NSJSONSerialization.dataWithJSONObject(pronouns.toRaw(), options: nil, error: nil)!
             let JSONString = NSString(data: JSONData, encoding: NSUTF8StringEncoding)
-            return "O=\(JSONString)"
+            return "O\(description)\(Gender.SeparatorCharacter)\(JSONString)"
         }
     }
     
@@ -77,15 +78,22 @@ extension Gender: RawRepresentable {
             return .Male
         case "F":
             return .Female
-        case _ where startsWith(raw, "O="):
-            let JSONString = raw[ advance(raw.startIndex, 2, raw.endIndex) ..< raw.endIndex ]
+        case _ where raw[raw.startIndex] == "O":
+            let descriptionStart = advance(raw.startIndex, 1, raw.endIndex)
+            let descriptionEnd: String.Index! = find(raw, SeparatorCharacter)
+            
+            if descriptionEnd == nil {
+                return nil
+            }
+            
+            let description = raw[descriptionStart ..< descriptionEnd]
+            let JSONString = raw[ advance(descriptionEnd, 1, raw.endIndex) ..< raw.endIndex ]
+            
             let JSONData = JSONString.dataUsingEncoding(NSUTF8StringEncoding)!
             
-            if let dict = NSJSONSerialization.JSONObjectWithData(JSONData, options: nil, error: nil) as? [String: AnyObject] {
-                if let (pronounsDict, description) = all(dict["pronouns"] as? NSDictionary, dict["description"] as? NSString) {
-                    if let pronouns = PronounSet.fromRaw(pronounsDict) {
-                        return .Other(description: description, pronouns: pronouns)
-                    }
+            if let dict = NSJSONSerialization.JSONObjectWithData(JSONData, options: nil, error: nil) as? [String: String] {
+                if let pronouns = PronounSet.fromRaw(dict) {
+                    return .Other(description: description, pronouns: pronouns)
                 }
             }
             fallthrough
