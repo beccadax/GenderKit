@@ -31,13 +31,15 @@ public struct PronounSet: Equatable {
 }
 
 extension PronounSet: RawRepresentable {
-    public func toRaw() -> NSDictionary {
-        return [ "subject": subject, "object": object, "possessiveDeterminer": possessiveDeterminer, "determiner": determiner ]
+    public func toRaw() -> String {
+        let dict = [ "subject": subject, "object": object, "possessiveDeterminer": possessiveDeterminer, "determiner": determiner ]
+        let data = NSJSONSerialization.dataWithJSONObject(dict, options: nil, error: nil)!
+        return NSString(data: data, encoding: NSUTF8StringEncoding)
     }
     
-    public static func fromRaw(raw: NSDictionary) -> PronounSet? {
-        if let raw = raw as? [String: String] {
-            if let (subject, object, possessiveDeterminer, determiner) = all(raw["subject"], raw["object"], raw["possessiveDeterminer"], raw["determiner"]) {
+    public static func fromRaw(raw: String) -> PronounSet? {
+        if let dict = NSJSONSerialization.JSONObjectWithData(raw.dataUsingEncoding(NSUTF8StringEncoding)!, options: nil, error: nil) as? NSDictionary as? [String: String] {
+            if let (subject, object, possessiveDeterminer, determiner) = all(dict["subject"], dict["object"], dict["possessiveDeterminer"], dict["determiner"]) {
                 return PronounSet(subject: subject, object: object, possessiveDeterminer: possessiveDeterminer, determiner: determiner)
             }
         }

@@ -66,9 +66,7 @@ extension Gender: RawRepresentable {
         case .Female:
             return "F"
         case let .Other(description, pronouns):
-            let JSONData = NSJSONSerialization.dataWithJSONObject(pronouns.toRaw(), options: nil, error: nil)!
-            let JSONString = NSString(data: JSONData, encoding: NSUTF8StringEncoding)
-            return "O\(description)\(Gender.SeparatorCharacter)\(JSONString)"
+            return "O\(description)\(Gender.SeparatorCharacter)\(pronouns.toRaw())"
         }
     }
     
@@ -87,14 +85,10 @@ extension Gender: RawRepresentable {
             }
             
             let description = raw[descriptionStart ..< descriptionEnd]
-            let JSONString = raw[ advance(descriptionEnd, 1, raw.endIndex) ..< raw.endIndex ]
+            let rawPronounSet = raw[ advance(descriptionEnd, 1, raw.endIndex) ..< raw.endIndex ]
             
-            let JSONData = JSONString.dataUsingEncoding(NSUTF8StringEncoding)!
-            
-            if let dict = NSJSONSerialization.JSONObjectWithData(JSONData, options: nil, error: nil) as? [String: String] {
-                if let pronouns = PronounSet.fromRaw(dict) {
-                    return .Other(description: description, pronouns: pronouns)
-                }
+            if let pronouns = PronounSet.fromRaw(rawPronounSet) {
+                return .Other(description: description, pronouns: pronouns)
             }
             fallthrough
         default:
