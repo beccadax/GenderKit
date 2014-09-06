@@ -23,6 +23,7 @@
 		842CEB0719B99F47006131A8 /* all.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = all.swift; sourceTree = "<group>"; };
 		842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderDesignTableViewController.swift; sourceTree = "<group>"; };
 		842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderDesignCell.swift; sourceTree = "<group>"; };
+		842F4C2819BAC4CD00A634B5 /* ReadmeImages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ReadmeImages; sourceTree = "<group>"; };
 		845FE82419BA6D18000464EA /* TRYME.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TRYME.playground; sourceTree = "<group>"; };
 		848E6F7419B98E79008C893B /* GenderKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GenderKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		848E6F7819B98E79008C893B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 			children = (
 				84CC95CD19BA786400C98D08 /* README.md */,
 				845FE82419BA6D18000464EA /* TRYME.playground */,
+				842F4C2819BAC4CD00A634B5 /* ReadmeImages */,
 				848E6F7619B98E79008C893B /* GenderKit */,
 				848E6F8019B98E79008C893B /* GenderKitTests */,
 				848E6F7519B98E79008C893B /* Products */,
