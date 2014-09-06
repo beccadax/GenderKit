@@ -13,7 +13,7 @@ protocol GenderDesignTableViewControllerDelegate: class {
     func genderDesignControllerDidCancel(sender: GenderDesignTableViewController)
 }
 
-class GenderDesignTableViewController: UITableViewController {
+class GenderDesignTableViewController: UITableViewController, UITextFieldDelegate {
     weak var delegate: GenderDesignTableViewControllerDelegate?
     
     override init() {
@@ -82,6 +82,19 @@ class GenderDesignTableViewController: UITableViewController {
         }
     }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if let index = find(string, Gender.SeparatorCharacter) {
+            // Try again without this character.
+            let stringWithoutSeparator = string[string.startIndex..<index] + string[advance(index, 1)..<string.endIndex]
+            textField.insertText(stringWithoutSeparator)
+            
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
     @IBAction func next(sender: AnyObject?) {
         if let sender = sender as? UITextField {
             let indexPath = tableView.indexPathForCell(sender.enclosingTableViewCell!)!
@@ -139,7 +152,7 @@ class GenderDesignTableViewController: UITableViewController {
         cell.equivalentLabel.text = NSString(format: NSLocalizedString("“%@” or “%@”", comment: ""), valueForIndexPath(indexPath, ofGender: .Male), valueForIndexPath(indexPath, ofGender: .Female))
         cell.otherTextField.text = valueForIndexPath(indexPath, ofGender: currentGender)
         
-        cell.otherTextField.tag = indexPath.row
+        cell.otherTextField.delegate = self
         
         cell.selectionStyle = .None
         
