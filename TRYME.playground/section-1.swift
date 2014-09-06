@@ -56,4 +56,4 @@ XCPShowView("GenderField", field)
 // "O(description)|(pronoun JSON data)" for Other.
 // 
 let raw = gender.toRaw()
-Gender.fromRaw(raw)!
+Gender.fromRaw(raw)!.description
