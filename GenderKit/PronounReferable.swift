@@ -43,11 +43,11 @@ public func their(possessiveDeterminer: PronounReferable) -> String {
 }
 
 /// Helper to return the determine pronoun with an initial cap. Use this where "His", "Hers", or "Theirs" would go in a sentence.
-public func Theirs(determiner: PronounReferable) -> String {
-    return determiner.pronouns.determiner
+public func Theirs(possessive: PronounReferable) -> String {
+    return possessive.pronouns.possessive
 }
 
 /// Helper to return the determine pronoun with an initial cap. Use this where "his", "hers", or "theirs" would go in a sentence.
-public func theirs(determiner: PronounReferable) -> String {
-    return Theirs(determiner).lowercaseString
+public func theirs(possessive: PronounReferable) -> String {
+    return Theirs(possessive).lowercaseString
 }

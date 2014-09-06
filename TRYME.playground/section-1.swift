@@ -9,7 +9,7 @@ import XCPlayground
 // 
 let gender = Gender.Male
 //let gender = Gender.Female
-//let gender = Gender.Other(description: "Agender", pronouns: PronounSet(subject: "They", object: "Them", possessiveDeterminer: "Their", determiner: "Theirs"))
+//let gender = Gender.Other(description: "Agender", pronouns: PronounSet(subject: "They", object: "Them", possessiveDeterminer: "Their", possessive: "Theirs"))
 gender.description
 
 // 
