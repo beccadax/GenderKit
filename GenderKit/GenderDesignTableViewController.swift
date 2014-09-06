@@ -78,7 +78,8 @@ class GenderDesignTableViewController: UITableViewController, UITextFieldDelegat
     
     @IBAction func edit(sender: AnyObject?) {
         if let sender = sender as? UITextField {
-            setValue(sender.text, forIndexPath: tableView.indexPathForCell(sender.enclosingTableViewCell!)!)
+            let trimmedText = sender.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            setValue(trimmedText, forIndexPath: tableView.indexPathForCell(sender.enclosingTableViewCell!)!)
         }
     }
     
