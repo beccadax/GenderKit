@@ -8,13 +8,15 @@ simple, straightforward, and type-safe as possible.
 It includes the following components:
 
 * A `Gender` enum for expressing user genders.
-* A `PronounSet` type and a series of helper functions to help you generate 
-  grammatically correct and friendly user interface text in English.
+* A `PronounSet` type and a set of helper functions to help you generate 
+  grammatical, user-tailored, friendly user interface text in English.
 * A `GenderField` control that allows the user to choose their gender.
 
 GenderKit supports non-binary genders with arbitrary, user-specified names and 
 pronoun sets. It attempts to make supporting less common gender identities just as 
-easy as working with the ones everybody is familiar with. 
+easy as working with the ones everybody is familiar with. But even if nobody ever 
+uses that support in your app, you'll benefit from GenderKit's handy pronoun helpers 
+and pre-built user interface controls.
 
 GenderKit is written in Swift and heavily uses Swift-specific features. It currently 
 supports only iOS, but AppKit versions of `GenderField` and associated UI could 
