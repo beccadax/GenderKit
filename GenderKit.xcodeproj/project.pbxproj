@@ -33,6 +33,7 @@
 		848E6F9619B98E87008C893B /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		84A9C2D719B98ED10016B73E /* GenderField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderField.swift; sourceTree = "<group>"; };
 		84A9C2D919B9925B0016B73E /* PronounSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PronounSet.swift; sourceTree = "<group>"; };
+		84CC95CD19BA786400C98D08 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		848E6F6A19B98E79008C893B = {
 			isa = PBXGroup;
 			children = (
+				84CC95CD19BA786400C98D08 /* README.md */,
 				845FE82419BA6D18000464EA /* TRYME.playground */,
 				848E6F7619B98E79008C893B /* GenderKit */,
 				848E6F8019B98E79008C893B /* GenderKitTests */,
