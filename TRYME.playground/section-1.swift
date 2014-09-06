@@ -36,13 +36,13 @@ let myUser = User()
 "\(They(myUser)) took me to \(their(myUser)) house."
 
 // 
-// The GenderPickerView gives you a simple control for 
+// The GenderField gives you a simple control for 
 // choosing a gender.
 // 
-let picker = GenderPickerView(frame: CGRect(x: 0, y: 0, width: 300, height: 24))
-//picker.explicitlyAllowsNone = true
-picker.selectedGender = gender
-XCPShowView("GenderPickerView", picker)
+let field = GenderField(frame: CGRect(x: 0, y: 0, width: 300, height: 24))
+//field.explicitlyAllowsNone = true
+field.selectedGender = gender
+XCPShowView("GenderField", field)
 // 
 // Tapping "Other" displays a gender designer allowing 
 // the user to specify their preferred gender identity 

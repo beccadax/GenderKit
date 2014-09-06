@@ -14,7 +14,7 @@
 		848E6F7A19B98E79008C893B /* GenderKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 848E6F7919B98E79008C893B /* GenderKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		848E6F8419B98E79008C893B /* GenderKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E6F8319B98E79008C893B /* GenderKitTests.swift */; };
 		848E6F9719B98E87008C893B /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E6F9619B98E87008C893B /* Gender.swift */; };
-		84A9C2D819B98ED10016B73E /* GenderPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9C2D719B98ED10016B73E /* GenderPickerView.swift */; };
+		84A9C2D819B98ED10016B73E /* GenderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9C2D719B98ED10016B73E /* GenderField.swift */; };
 		84A9C2DA19B9925B0016B73E /* PronounSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9C2D919B9925B0016B73E /* PronounSet.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +31,7 @@
 		848E6F8219B98E79008C893B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		848E6F8319B98E79008C893B /* GenderKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderKitTests.swift; sourceTree = "<group>"; };
 		848E6F9619B98E87008C893B /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
-		84A9C2D719B98ED10016B73E /* GenderPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderPickerView.swift; sourceTree = "<group>"; };
+		84A9C2D719B98ED10016B73E /* GenderField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderField.swift; sourceTree = "<group>"; };
 		84A9C2D919B9925B0016B73E /* PronounSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PronounSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,7 +79,7 @@
 				848E6F9619B98E87008C893B /* Gender.swift */,
 				84A9C2D919B9925B0016B73E /* PronounSet.swift */,
 				8409382719BA61F7002EF842 /* PronounReferable.swift */,
-				84A9C2D719B98ED10016B73E /* GenderPickerView.swift */,
+				84A9C2D719B98ED10016B73E /* GenderField.swift */,
 				842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */,
 				842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */,
 				842CEB0719B99F47006131A8 /* all.swift */,
@@ -224,7 +224,7 @@
 				842CEB0819B99F47006131A8 /* all.swift in Sources */,
 				848E6F9719B98E87008C893B /* Gender.swift in Sources */,
 				842CEB1119B9A8DF006131A8 /* GenderDesignTableViewController.swift in Sources */,
-				84A9C2D819B98ED10016B73E /* GenderPickerView.swift in Sources */,
+				84A9C2D819B98ED10016B73E /* GenderField.swift in Sources */,
 				8409382819BA61F7002EF842 /* PronounReferable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  GenderPickerView.swift
+//  GenderField.swift
 //  GenderKit
 //
 //  Created by Brent Royal-Gordon on 9/4/14.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-@IBDesignable public class GenderPickerView: UIControl, GenderDesignTableViewControllerDelegate, UIPopoverControllerDelegate {
-    private let picker = UISegmentedControl(items: [ "Male", "Female", "Other…" ])
+@IBDesignable public class GenderField: UIControl, GenderDesignTableViewControllerDelegate, UIPopoverControllerDelegate {
+    private let segmentedControl = UISegmentedControl(items: [ "Male", "Female", "Other…" ])
     private let pickerTapGesture: UIGestureRecognizer!
     
     public var selectedGender: Gender? {
@@ -17,32 +17,32 @@ import UIKit
             var otherName = "Other"
             switch selectedGender {
             case .Some(.Male):
-                picker.selectedSegmentIndex = 0
+                segmentedControl.selectedSegmentIndex = 0
             case .Some(.Female):
-                picker.selectedSegmentIndex = 1
+                segmentedControl.selectedSegmentIndex = 1
             case let .Some(.Other(description, _)):
-                picker.selectedSegmentIndex = 2
+                segmentedControl.selectedSegmentIndex = 2
                 otherName = description
             case .None:
-                picker.selectedSegmentIndex = explicitlyAllowsNone ? 3 : UISegmentedControlNoSegment
+                segmentedControl.selectedSegmentIndex = explicitlyAllowsNone ? 3 : UISegmentedControlNoSegment
             }
             
-            picker.setTitle("\(otherName)…", forSegmentAtIndex: 2)
+            segmentedControl.setTitle("\(otherName)…", forSegmentAtIndex: 2)
         }
     }
     
     @IBInspectable public var explicitlyAllowsNone: Bool = false {
         didSet {
             if explicitlyAllowsNone {
-                picker.insertSegmentWithTitle("None", atIndex: 3, animated: false)
+                segmentedControl.insertSegmentWithTitle("None", atIndex: 3, animated: false)
                 if selectedGender == nil {
-                    picker.selectedSegmentIndex = 3
+                    segmentedControl.selectedSegmentIndex = 3
                 }
             }
             else {
-                picker.removeSegmentAtIndex(3, animated: false)
+                segmentedControl.removeSegmentAtIndex(3, animated: false)
                 if selectedGender == nil {
-                    picker.selectedSegmentIndex = UISegmentedControlNoSegment
+                    segmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
                 }
             }
         }
@@ -58,19 +58,19 @@ import UIKit
             super.init(coder: coder!)
         }
         
-        picker.selectedSegmentIndex = UISegmentedControlNoSegment
+        segmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
         
-        picker.frame = self.bounds
-        picker.autoresizingMask = .FlexibleWidth | .FlexibleHeight
-        addSubview(picker)
+        segmentedControl.frame = self.bounds
+        segmentedControl.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+        addSubview(segmentedControl)
         
-        picker.addTarget(self, action: "valueChanged:forEvent:", forControlEvents: .ValueChanged)
+        segmentedControl.addTarget(self, action: "valueChanged:forEvent:", forControlEvents: .ValueChanged)
         
         pickerTapGesture = UITapGestureRecognizer(target: self, action: "pickerTapped:")
         pickerTapGesture.delaysTouchesBegan = false
         pickerTapGesture.delaysTouchesEnded = false
         pickerTapGesture.cancelsTouchesInView = false
-        picker.addGestureRecognizer(pickerTapGesture)
+        segmentedControl.addGestureRecognizer(pickerTapGesture)
     }
     
     public convenience override init(frame: CGRect) {
@@ -85,7 +85,7 @@ import UIKit
     private var genderDesignPopoverController: UIPopoverController?
     
     func valueChanged(sender: UISegmentedControl, forEvent event: UIEvent!) {
-        switch picker.selectedSegmentIndex {
+        switch segmentedControl.selectedSegmentIndex {
         case 0:
             selectedGender = .Male
             sendActionsForControlEvents(.ValueChanged)
@@ -108,7 +108,7 @@ import UIKit
             switch self.selectedGender {
             case .Some(.Other):
                 // Did we re-tap the "Other" button?
-                if self.picker.selectedSegmentIndex == 2 {
+                if self.segmentedControl.selectedSegmentIndex == 2 {
                     self.presentGenderDesigner(self.selectedGender)
                 }
             default:
@@ -131,7 +131,7 @@ import UIKit
         genderDesignPopoverController = UIPopoverController(contentViewController: navController)
         genderDesignPopoverController!.delegate = self
         
-        genderDesignPopoverController!.presentPopoverFromRect(picker.bounds, inView: picker, permittedArrowDirections: .Any, animated: true)
+        genderDesignPopoverController!.presentPopoverFromRect(segmentedControl.bounds, inView: segmentedControl, permittedArrowDirections: .Any, animated: true)
     }
     
     func genderDesignController(sender: GenderDesignTableViewController, didDesignGender gender: Gender) {
