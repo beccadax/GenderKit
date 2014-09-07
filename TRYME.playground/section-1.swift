@@ -19,6 +19,9 @@ gender.description
 //
 "\(They(gender)) let me go to \(their(gender)) house."
 
+let x: InflectableString = "Hello \(them)!"
+x.inflectedString(genderLexicons: [gender.genderLexicon])
+
 //
 // You can make your own model classes conform to 
 // PronounReferable to allow for easier use of the 
