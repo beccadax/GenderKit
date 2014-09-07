@@ -8,14 +8,14 @@
 
 /// The Inflectable protocol represents a type that can be inflected to refer to 
 /// one or more genders.
-protocol Inflectable {
+public protocol Inflectable {
     func inflectedString(genderLexicons lexicons: [GenderLexicon]) -> String
 }
 
 extension String: Inflectable {
     /// Plain Strings are Inflectable, but aren't actually altered by being 
     /// inflected.
-    func inflectedString(genderLexicons _: [GenderLexicon]) -> String {
+    public func inflectedString(genderLexicons _: [GenderLexicon]) -> String {
         return self
     }
 }
