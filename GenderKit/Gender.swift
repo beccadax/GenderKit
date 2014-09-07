@@ -80,8 +80,6 @@ extension Gender: RawRepresentable {
     }
 }
 
-extension Gender: Genderable {}
-
 public func == (lhs: Gender, rhs: Gender) -> Bool {
     switch (lhs, rhs) {
     case (.Male, .Male):
