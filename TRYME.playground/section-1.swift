@@ -46,7 +46,7 @@ inflect("\(They) took me to \(their) house.", forGender: myUser)
 // choosing a gender.
 // 
 let field = GenderField(frame: CGRect(x: 0, y: 0, width: 300, height: 24))
-//field.explicitlyAllowsNone = true
+//field.nilGenderLabel = "Group"
 field.selectedGender = gender
 XCPShowView("GenderField", field)
 // 

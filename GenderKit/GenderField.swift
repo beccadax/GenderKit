@@ -24,17 +24,22 @@ import UIKit
                 segmentedControl.selectedSegmentIndex = 2
                 otherName = selectedGender!.description
             case .None:
-                segmentedControl.selectedSegmentIndex = explicitlyAllowsNone ? 3 : UISegmentedControlNoSegment
+                segmentedControl.selectedSegmentIndex = (nilGenderLabel != nil) ? 3 : UISegmentedControlNoSegment
             }
             
             segmentedControl.setTitle("\(otherName)…", forSegmentAtIndex: 2)
         }
     }
     
-    @IBInspectable public var explicitlyAllowsNone: Bool = false {
+    @IBInspectable public var nilGenderLabel: String? = nil {
         didSet {
-            if explicitlyAllowsNone {
-                segmentedControl.insertSegmentWithTitle("None", atIndex: 3, animated: false)
+            if let label = nilGenderLabel {
+                if segmentedControl.numberOfSegments == 4 {
+                    segmentedControl.setTitle(label, forSegmentAtIndex: 3)
+                }
+                else {
+                    segmentedControl.insertSegmentWithTitle(label, atIndex: 3, animated: false)
+                }
                 if selectedGender == nil {
                     segmentedControl.selectedSegmentIndex = 3
                 }
