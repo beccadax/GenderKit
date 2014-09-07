@@ -10,6 +10,7 @@
 		8409382819BA61F7002EF842 /* Genderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409382719BA61F7002EF842 /* Genderable.swift */; };
 		841B13C819BBF04D00DF8944 /* Inflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B13C719BBF04D00DF8944 /* Inflectable.swift */; };
 		841B13CA19BBF0F300DF8944 /* InflectableTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B13C919BBF0F300DF8944 /* InflectableTerm.swift */; };
+		841B13CC19BBF69E00DF8944 /* InflectableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B13CB19BBF69E00DF8944 /* InflectableString.swift */; };
 		842CEB0819B99F47006131A8 /* all.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CEB0719B99F47006131A8 /* all.swift */; };
 		842CEB1119B9A8DF006131A8 /* GenderDesignTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */; };
 		842CEB1419B9AE3B006131A8 /* GenderDesignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */; };
@@ -26,6 +27,7 @@
 		8409382719BA61F7002EF842 /* Genderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genderable.swift; sourceTree = "<group>"; };
 		841B13C719BBF04D00DF8944 /* Inflectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inflectable.swift; sourceTree = "<group>"; };
 		841B13C919BBF0F300DF8944 /* InflectableTerm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InflectableTerm.swift; sourceTree = "<group>"; };
+		841B13CB19BBF69E00DF8944 /* InflectableString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InflectableString.swift; sourceTree = "<group>"; };
 		842CEB0719B99F47006131A8 /* all.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = all.swift; sourceTree = "<group>"; };
 		842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderDesignTableViewController.swift; sourceTree = "<group>"; };
 		842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderDesignCell.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */,
 				841B13C719BBF04D00DF8944 /* Inflectable.swift */,
 				841B13C919BBF0F300DF8944 /* InflectableTerm.swift */,
+				841B13CB19BBF69E00DF8944 /* InflectableString.swift */,
 				842CEB0719B99F47006131A8 /* all.swift */,
 				848E6F7719B98E79008C893B /* Supporting Files */,
 			);
@@ -245,6 +248,7 @@
 				84A9C2D819B98ED10016B73E /* GenderField.swift in Sources */,
 				8409382819BA61F7002EF842 /* Genderable.swift in Sources */,
 				841B13CA19BBF0F300DF8944 /* InflectableTerm.swift in Sources */,
+				841B13CC19BBF69E00DF8944 /* InflectableString.swift in Sources */,
 				841B13C819BBF04D00DF8944 /* Inflectable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
