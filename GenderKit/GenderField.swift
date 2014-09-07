@@ -20,9 +20,9 @@ import UIKit
                 segmentedControl.selectedSegmentIndex = 0
             case .Some(.Female):
                 segmentedControl.selectedSegmentIndex = 1
-            case let .Some(.Other(description, _)):
+            case let .Some(.Other):
                 segmentedControl.selectedSegmentIndex = 2
-                otherName = description
+                otherName = selectedGender!.description
             case .None:
                 segmentedControl.selectedSegmentIndex = explicitlyAllowsNone ? 3 : UISegmentedControlNoSegment
             }
@@ -124,7 +124,7 @@ import UIKit
         genderDesignController.delegate = self
         
         if let gender = gender {
-            genderDesignController.currentGender = gender
+            genderDesignController.currentGenderLexicon = gender.genderLexicon
         }
         
         let navController = UINavigationController(rootViewController: genderDesignController)
@@ -134,8 +134,8 @@ import UIKit
         genderDesignPopoverController!.presentPopoverFromRect(segmentedControl.bounds, inView: segmentedControl, permittedArrowDirections: .Any, animated: true)
     }
     
-    func genderDesignController(sender: GenderDesignTableViewController, didDesignGender gender: Gender) {
-        selectedGender = gender
+    func genderDesignController(sender: GenderDesignTableViewController, didChangeLexicon lexicon: GenderLexicon) {
+        selectedGender = Gender(lexicon)
         sendActionsForControlEvents(.ValueChanged)
         
         genderDesignPopoverController!.dismissPopoverAnimated(true)

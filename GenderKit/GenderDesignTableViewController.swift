@@ -9,7 +9,7 @@
 import UIKit
 
 protocol GenderDesignTableViewControllerDelegate: class {
-    func genderDesignController(sender: GenderDesignTableViewController, didDesignGender gender: Gender)
+    func genderDesignController(sender: GenderDesignTableViewController, didChangeLexicon lexicon: GenderLexicon)
     func genderDesignControllerDidCancel(sender: GenderDesignTableViewController)
 }
 
@@ -28,24 +28,24 @@ class GenderDesignTableViewController: UITableViewController, UITextFieldDelegat
         fatalError("GenderDesignTableViewController does not support NSCoding")
     }
     
-    var currentGender: Gender = .Other(description: "", pronouns: PronounSet(subject: "", object: "", possessiveDeterminer: "", possessive: "")) {
+    var currentGenderLexicon: GenderLexicon = GenderLexicon(gender: "", subjectPronoun: "", objectPronoun: "", possessiveDeterminerPronoun: "", possessivePronoun: "") {
         didSet {
             updateDoneEnabled()
         }
     }
     
-    private func valueForIndexPath(indexPath: NSIndexPath, ofGender gender: Gender) -> String {
+    private func valueForIndexPath(indexPath: NSIndexPath, ofLexicon lexicon: GenderLexicon) -> String {
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
-            return gender.description
+            return lexicon.gender
         case (1, 0):
-            return gender.pronouns.subject
+            return lexicon.subjectPronoun
         case (1, 1):
-            return gender.pronouns.object
+            return lexicon.objectPronoun
         case (1, 2):
-            return gender.pronouns.possessiveDeterminer
+            return lexicon.possessiveDeterminerPronoun
         case (1, 3):
-            return gender.pronouns.possessive
+            return lexicon.possessiveDeterminerPronoun
         default:
             fatalError("Invalid gender component index")
         }
@@ -54,22 +54,22 @@ class GenderDesignTableViewController: UITableViewController, UITextFieldDelegat
     private func setValue(value: String, forIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
-            currentGender.description = value
+            currentGenderLexicon.gender = value
         case (1, 0):
-            currentGender.pronouns.subject = value
+            currentGenderLexicon.subjectPronoun = value
         case (1, 1):
-            currentGender.pronouns.object = value
+            currentGenderLexicon.objectPronoun = value
         case (1, 2):
-            currentGender.pronouns.possessiveDeterminer = value
+            currentGenderLexicon.possessiveDeterminerPronoun = value
         case (1, 3):
-            currentGender.pronouns.possessive = value
+            currentGenderLexicon.possessivePronoun = value
         default:
             fatalError("Invalid gender component index")
         }
     }
     
     @IBAction func done(sender: AnyObject?) {
-        delegate?.genderDesignController(self, didDesignGender: currentGender)
+        delegate?.genderDesignController(self, didChangeLexicon: currentGenderLexicon)
     }
     
     @IBAction func cancel(sender: AnyObject?) {
@@ -107,7 +107,7 @@ class GenderDesignTableViewController: UITableViewController, UITextFieldDelegat
     }
     
     private func updateDoneEnabled() {
-        navigationItem.rightBarButtonItem?.enabled = reduce(map(tableView.indexPathsForAllRows) { self.valueForIndexPath($0, ofGender: self.currentGender) != "" }, true, &)
+        navigationItem.rightBarButtonItem?.enabled = reduce(map(tableView.indexPathsForAllRows) { self.valueForIndexPath($0, ofLexicon: self.currentGenderLexicon) != "" }, true, &)
     }
     
     override func viewDidLoad() {
@@ -150,8 +150,8 @@ class GenderDesignTableViewController: UITableViewController, UITextFieldDelegat
         
         cell.equivalentLabelCollapsed = (indexPath.section == 0)
         
-        cell.equivalentLabel.text = NSString(format: NSLocalizedString("“%@” or “%@”", comment: ""), valueForIndexPath(indexPath, ofGender: .Male), valueForIndexPath(indexPath, ofGender: .Female))
-        cell.otherTextField.text = valueForIndexPath(indexPath, ofGender: currentGender)
+        cell.equivalentLabel.text = NSString(format: NSLocalizedString("“%@” or “%@”", comment: ""), valueForIndexPath(indexPath, ofLexicon: Gender.Male.genderLexicon), valueForIndexPath(indexPath, ofLexicon: Gender.Female.genderLexicon))
+        cell.otherTextField.text = valueForIndexPath(indexPath, ofLexicon: currentGenderLexicon)
         
         cell.otherTextField.delegate = self
         
