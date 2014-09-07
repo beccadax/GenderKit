@@ -7,9 +7,9 @@ import XCPlayground
 // person's gender. Gender can be Male, Female, or 
 // Other, with Other carrying a custom set of pronouns.
 // 
-let gender = Gender.Male
-//let gender = Gender.Female
-//let gender = Gender.Other(description: "Agender", pronouns: PronounSet(subject: "They", object: "Them", possessiveDeterminer: "Their", possessive: "Theirs"))
+//let gender = Gender.Male
+let gender = Gender.Female
+//let gender = Gender.Other(GenderLexicon(gender: "Agender", subjectPronoun: "They", objectPronoun: "Them", possessiveDeterminerPronoun: "Their", possessivePronoun: "Theirs"))
 gender.description
 
 // 
@@ -24,11 +24,11 @@ gender.description
 // PronounReferable to allow for easier use of the 
 // pronoun helper functions.
 //
-class User: PronounReferable {
+class User: Genderable {
     var userGender = gender
     
-    var pronouns: PronounSet {
-        return userGender.pronouns
+    var genderLexicon: GenderLexicon {
+        return userGender.genderLexicon
     }
 }
 let myUser = User()
