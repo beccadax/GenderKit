@@ -13,19 +13,22 @@ let gender = Gender.Female
 gender.description
 
 // 
-// Easily construct sentences with pronouns appropriate
-// for a particular gender using the pronoun helper 
-// functions.
+// Easily construct sentences with words appropriate
+// to a particular gender using InflectableString and  
+// the InflectableTerm constants.
 //
-"\(They(gender)) let me go to \(their(gender)) house."
+inflect("\(They) let me go to \(their) house.", forGender: gender)
 
-let x: InflectableString = "Hello \(them)!"
-x.inflectedString(genderLexicons: [gender.genderLexicon])
+// 
+// You can inflect a sentence that refers to several 
+// different people, too.
+// 
+inflect("\(They[0]) took me to \(their[1]) house.", forGenders: [Gender.Male, Gender.Female])
 
 //
 // You can make your own model classes conform to 
 // PronounReferable to allow for easier use of the 
-// pronoun helper functions.
+// inflection features.
 //
 class User: Genderable {
     var userGender = gender
@@ -36,7 +39,7 @@ class User: Genderable {
 }
 let myUser = User()
 
-"\(They(myUser)) took me to \(their(myUser)) house."
+inflect("\(They) took me to \(their) house.", forGender: myUser)
 
 // 
 // The GenderField gives you a simple control for 
