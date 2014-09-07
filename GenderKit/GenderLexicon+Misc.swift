@@ -12,7 +12,7 @@ public func == (lhs: GenderLexicon, rhs: GenderLexicon) -> Bool {
     return lhs.gender == rhs.gender && lhs.subjectPronoun == rhs.subjectPronoun && lhs.objectPronoun == rhs.objectPronoun && lhs.possessiveDeterminerPronoun == rhs.possessiveDeterminerPronoun && lhs.possessivePronoun == rhs.possessivePronoun
 }
 
-extension GenderLexicon: PronounReferable {
+extension GenderLexicon: Genderable {
     public var genderLexicon: GenderLexicon {
         return self
     }

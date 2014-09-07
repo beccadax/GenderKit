@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8409382819BA61F7002EF842 /* PronounReferable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409382719BA61F7002EF842 /* PronounReferable.swift */; };
+		8409382819BA61F7002EF842 /* Genderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409382719BA61F7002EF842 /* Genderable.swift */; };
 		842CEB0819B99F47006131A8 /* all.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CEB0719B99F47006131A8 /* all.swift */; };
 		842CEB1119B9A8DF006131A8 /* GenderDesignTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */; };
 		842CEB1419B9AE3B006131A8 /* GenderDesignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */; };
@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8409382719BA61F7002EF842 /* PronounReferable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PronounReferable.swift; sourceTree = "<group>"; };
+		8409382719BA61F7002EF842 /* Genderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genderable.swift; sourceTree = "<group>"; };
 		842CEB0719B99F47006131A8 /* all.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = all.swift; sourceTree = "<group>"; };
 		842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderDesignTableViewController.swift; sourceTree = "<group>"; };
 		842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderDesignCell.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 				842F4C2C19BBC6FC00A634B5 /* GenderLexicon.swift */,
 				842F4C2F19BBD91300A634B5 /* GenderLexicon+RawRepresentable.swift */,
 				842F4C3119BBDEDD00A634B5 /* GenderLexicon+Misc.swift */,
-				8409382719BA61F7002EF842 /* PronounReferable.swift */,
+				8409382719BA61F7002EF842 /* Genderable.swift */,
 				84A9C2D719B98ED10016B73E /* GenderField.swift */,
 				842CEB0F19B9A8DF006131A8 /* GenderDesignTableViewController.swift */,
 				842CEB1319B9AE3B006131A8 /* GenderDesignCell.swift */,
@@ -237,7 +237,7 @@
 				842F4C3019BBD91300A634B5 /* GenderLexicon+RawRepresentable.swift in Sources */,
 				842F4C2E19BBC98B00A634B5 /* GenderLexicon.swift in Sources */,
 				84A9C2D819B98ED10016B73E /* GenderField.swift in Sources */,
-				8409382819BA61F7002EF842 /* PronounReferable.swift in Sources */,
+				8409382819BA61F7002EF842 /* Genderable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

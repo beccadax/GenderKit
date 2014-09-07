@@ -80,7 +80,7 @@ extension Gender: RawRepresentable {
     }
 }
 
-extension Gender: PronounReferable {}
+extension Gender: Genderable {}
 
 public func == (lhs: Gender, rhs: Gender) -> Bool {
     switch (lhs, rhs) {
