@@ -50,7 +50,3 @@ extension PronounSet: RawRepresentable {
 public func == (lhs: PronounSet, rhs: PronounSet) -> Bool {
     return lhs.subject == rhs.subject && lhs.object == rhs.object && lhs.possessiveDeterminer == rhs.possessiveDeterminer && lhs.possessive == rhs.possessive
 }
-
-extension PronounSet: PronounReferable {
-    public var pronouns: PronounSet { return self }
-}
