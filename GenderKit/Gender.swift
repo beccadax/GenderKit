@@ -11,49 +11,39 @@ public enum Gender: Equatable, Printable {
     
     case Male
     case Female
-    case Other (description: String, pronouns: PronounSet)
+    case Other (GenderLexicon)
     
-    public var description: String {
-        get {
-            switch self {
-            case .Male:
-                return "Male"
-            case .Female:
-                return "Female"
-            case let .Other(description: value, pronouns: _):
-                return value
-            }
+    init(_ lexicon: GenderLexicon) {
+        if lexicon == GenderLexicon.maleLexicon {
+            self = .Male
         }
-        set {
-            switch newValue {
-            case Male.description:
-                self = .Male
-            case Female.description:
-                self = .Female
-            default:
-                self = .Other(description: newValue, pronouns: self.pronouns)
-            }
+        else if lexicon == GenderLexicon.femaleLexicon {
+            self = .Female
+        }
+        else {
+            self = .Other (lexicon)
         }
     }
     
-    public var pronouns: PronounSet {
+    public var description: String {
+        get {
+            return genderLexicon.gender
+        }
+    }
+    
+    public var genderLexicon: GenderLexicon {
         get {
             switch self {
             case .Male:
-                return PronounSet.defaultMalePronouns
+                return GenderLexicon.maleLexicon
             case .Female:
-                return PronounSet.defaultFemalePronouns
-            case let .Other(description: _, pronouns: value):
-                return value
+                return GenderLexicon.femaleLexicon
+            case let .Other(lexicon):
+                return lexicon
             }
         }
         set {
-            switch self {
-            case .Male, .Female where newValue == pronouns:
-                break
-            default:
-                self = .Other(description: description, pronouns: newValue)
-            }
+            self = Gender(newValue)
         }
     }
 }
@@ -65,8 +55,8 @@ extension Gender: RawRepresentable {
             return "M"
         case .Female:
             return "F"
-        case let .Other(description, pronouns):
-            return "O\(description)\(Gender.SeparatorCharacter)\(pronouns.toRaw())"
+        case let .Other(lexicon):
+            return "O" + lexicon.toRaw()
         }
     }
     
@@ -77,18 +67,11 @@ extension Gender: RawRepresentable {
         case "F":
             return .Female
         case _ where raw[raw.startIndex] == "O":
-            let descriptionStart = advance(raw.startIndex, 1, raw.endIndex)
-            let descriptionEnd: String.Index! = find(raw, SeparatorCharacter)
+            let lexiconStart = raw.startIndex.successor()
+            let rawLexicon = raw[lexiconStart ..< raw.endIndex]
             
-            if descriptionEnd == nil {
-                return nil
-            }
-            
-            let description = raw[descriptionStart ..< descriptionEnd]
-            let rawPronounSet = raw[ advance(descriptionEnd, 1, raw.endIndex) ..< raw.endIndex ]
-            
-            if let pronouns = PronounSet.fromRaw(rawPronounSet) {
-                return .Other(description: description, pronouns: pronouns)
+            if let lexicon = GenderLexicon.fromRaw(rawLexicon) {
+                return .Other(lexicon)
             }
             fallthrough
         default:
@@ -97,7 +80,7 @@ extension Gender: RawRepresentable {
     }
 }
 
-extension Gender: PronounReferable {}
+extension Gender: Genderable {}
 
 public func == (lhs: Gender, rhs: Gender) -> Bool {
     switch (lhs, rhs) {

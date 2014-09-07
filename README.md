@@ -54,7 +54,7 @@ Pronoun support
 
 Each `Gender` has an associated `PronounSet`. The `PronounSet` encompasses four 
 pronouns for different situations: `subject`, `object`, `possessiveDeterminer`, and 
-`determiner`.
+`possessive`.
 
 You probably don't know what those terms mean, and neither does anyone else, so 
 GenderKit includes a set of helper functions that make it easy to construct a 
