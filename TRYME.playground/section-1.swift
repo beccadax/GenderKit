@@ -23,7 +23,7 @@ inflect("\(They) let me go to \(their) house.", forGender: gender)
 // You can inflect a sentence that refers to several 
 // different people, too.
 // 
-inflect("\(They[0]) took me to \(their[1]) house.", forGenders: [Gender.Male, Gender.Female])
+inflect("\(They[0]) took me to \(their[1]) house.", forGenders: Gender.Male, Gender.Female)
 
 //
 // You can make your own model classes conform to 
