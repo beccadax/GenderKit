@@ -12,6 +12,19 @@ public protocol Genderable {
     var genderLexicon: GenderLexicon { get }
 }
 
+// These conformances are not, strictly speaking, semantically correct, but they're 
+// very handy.
+extension Gender: Genderable {}
+extension GenderLexicon: Genderable {
+    public var genderLexicon: GenderLexicon {
+        return self
+    }
+}
+
+// Front-end functions for inflection. The main value of these functions is not in 
+// anything they do themselves, but that they force the string parameter to be an 
+// InflectableString, which helps disambiguate in certain situations.
+
 public func inflect(string: InflectableString, forGenderLexicons lexicons: [GenderLexicon]) -> String {
     return string.inflectedString(genderLexicons: lexicons)
 }
